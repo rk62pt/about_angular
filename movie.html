@@ -1,0 +1,24 @@
+<html>
+<meta charset="utf-8" />
+<head>
+  <title>angular page</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/infotag.css" />
+  <script src="javascripts/angular.min.js"></script>
+  <script src="javascripts/controllers.js"></script>
+</head>
+<body  ng-app="movieModule">
+
+<div ng-controller="MovieListCtrl">
+  <div>
+    Search: <input ng-model="search">
+  </div>
+    <div ng-class="'infotag'" ng-repeat="movie in movieList | filter:search">
+      <div>
+        <label>{{movie.title}}</label>
+      </div>
+      <div>{{movie.descriptionFilterHtml}}</div>
+      <div>{{movie.startDate}}~{{movie.endDate}}</div>
+    </div>
+</div>
+</body>
+</html>
